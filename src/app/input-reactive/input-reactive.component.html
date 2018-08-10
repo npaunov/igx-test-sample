@@ -1,0 +1,10 @@
+<form [formGroup]="fullNameForm">
+    <igx-input-group>
+        <input igxInput name="fullName"  type="text" formControlName="fullName" />
+        <label igxLabel for="fullName">Full Name</label>
+    </igx-input-group>
+    <div style="padding-top: 10px">
+        <button (click)="updateFullName()">Update Name</button>
+        <button (click)="reset()">Clear</button>
+    </div>
+</form>
