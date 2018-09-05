@@ -1,15 +1,24 @@
 <button title="clear" (click)="onClear($event)">Clear</button>
-
-<!-- <div style="z-index: 1;background-color: red;position: relative; width: 1000px; height: 700px;" >
- <igx-grid #grid1 [data]="localData" [autoGenerate]="false" width="960px" height="551px" >
-    <igx-column [hasSummary]="true" [groupable]="true" movable="true" width="200px" [sortable]="true" field="FirstName" filterable="true" dataType="string"></igx-column>
+<!-- <igx-grid #grid1 [data]="localData" [autoGenerate]="false" width="960px" height="551px" >
+    <igx-column [pinned]="true" [hasSummary]="true" [groupable]="true" movable="true" width="200px" [sortable]="true" field="FirstName" filterable="true" dataType="string"></igx-column>
     <igx-column [hasSummary]="true" [groupable]="true" movable="true" field="LastName" filterable="true" dataType="string"></igx-column>
     <igx-column field="Country" [groupable]="true" movable="true" filterable="true" dataType="string"></igx-column>
     <igx-column [groupable]="true" movable="true" field="Age" [sortable]="true" width="150px" filterable="true" dataType="number"></igx-column>
     <igx-column field="RegistererDate" [groupable]="true" movable="true" filterable="true" dataType="date"></igx-column>
     <igx-column field="IsActive" [groupable]="true" movable="true" filterable="true" dataType="boolean"></igx-column>
+</igx-grid> -->
+
+<igx-grid #grid1 [data]="localData" [autoGenerate]="false" width="960px" height="551px" >
+    <igx-column  [pinned]="true" [hasSummary]="true" [groupable]="true" movable="true" width="20%" [sortable]="true" field="FirstName" filterable="true" dataType="string"></igx-column>
+    <igx-column [hasSummary]="true" [groupable]="true" movable="true" field="LastName" filterable="true" dataType="string"></igx-column>
+    <igx-column field="Country" [groupable]="true" movable="true" filterable="true" dataType="string"></igx-column>
+    <igx-column [groupable]="true" movable="true" field="Age" [sortable]="true" width="150px" filterable="true" dataType="number"></igx-column>
+    <igx-column field="RegistererDate" width="3em" [groupable]="true" movable="true" filterable="true" dataType="date"></igx-column>
+    <igx-column field="IsActive" [groupable]="true" movable="true" filterable="true" dataType="boolean"></igx-column>
 </igx-grid>
-</div> -->
+<div style="z-index:0;background-color: red;position: relative; width: 1000px; height: 700px;" >
+
+</div>
 <!-- <igx-grid #grid1 [data]="localData" [autoGenerate]="false" width="960px" height="551px" >
     <igx-column [hasSummary]="true" [groupable]="true" movable="true" width="200px" [sortable]="true" field="FirstName" filterable="true" dataType="string"></igx-column>
     <igx-column [hasSummary]="true" [groupable]="true" movable="true" field="LastName" filterable="true" dataType="string"></igx-column>
@@ -18,8 +27,19 @@
     <igx-column field="RegistererDate" [groupable]="true" movable="true" filterable="true" dataType="date"></igx-column>
     <igx-column field="IsActive" [groupable]="true" movable="true" filterable="true" dataType="boolean"></igx-column>
 </igx-grid> -->
+<!-- <div div style="z-index: 1;background-color: red;position: relative; width: 1000px; height: 700px;"  >
+  <igx-grid #grid1 [data]="localData" [autoGenerate]="false" width="960px" height="551px" >
+    <igx-column [hasSummary]="true" [groupable]="true" movable="true" width="200px" [sortable]="true" field="FirstName" filterable="true" dataType="string"></igx-column>
+    <igx-column [hasSummary]="true" [groupable]="true" movable="true" field="LastName" filterable="true" dataType="string"></igx-column>
+    <igx-column field="Country" [groupable]="true" movable="true" filterable="true" dataType="string"></igx-column>
+    <igx-column [groupable]="true" movable="true" field="Age" [sortable]="true" width="150px" filterable="true" dataType="number"></igx-column>
+    <igx-column field="RegistererDate" [groupable]="true" movable="true" filterable="true" dataType="date"></igx-column>
+    <igx-column field="IsActive" [groupable]="true" movable="true" filterable="true" dataType="boolean"></igx-column>
+</igx-grid>
+</div> -->
+
+<!-- <button (click)="onIconClick($event)" [igxToggleAction]="toggle" [igxToggleOutlet]="outlet">Toggle</button>
 <div style="z-index: 1;background-color: red;position: relative; width: 1000px; height: 700px;" >
-  <igx-grid #grid1 [data]="localData"   width="960px" height="550px">
-    <igx-column field="EmployeeID" filterable="true" dataType="string"></igx-column>
-  </igx-grid>
-</div>
+<div  igxToggle #toggle>something</div>
+<div igxOverlayOutlet #outlet="overlay-outlet" class="overlay-container"></div>
+</div> -->

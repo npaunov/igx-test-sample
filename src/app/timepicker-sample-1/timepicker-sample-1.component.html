@@ -1,7 +1,54 @@
-<div class="sample-wrapper time-picker-wrapper">
+<!-- <igx-datePicker #date1 [value]="date"></igx-datePicker> -->
+
+<igx-date-picker #date1 [value]="date">
+  <ng-template igxDatePickerTemplate let-openDialog="openDialog" let-value="value" let-displayData="displayData">
+      <igx-input-group (click)="openDialog()">
+          <igx-prefix>
+              <igx-icon>home</igx-icon>
+          </igx-prefix>
+          <label igxLabel>Home Time </label>
+          <input igxInput [value]="displayData" />
+          <igx-suffix>
+              <igx-icon>access_alarm</igx-icon>
+          </igx-suffix>
+      </igx-input-group>
+      <label>{{value}}</label>
+  </ng-template>
+</igx-date-picker>
+<button (click)="buttonClick()">Click me</button>
+
+
+<!-- <igx-time-picker>
+  <ng-template igxTimePickerTemplate let-openDialog="openDialog" let-value="value" let-displayTime="displayTime">
+    <button igxButton="raised" igxRipple="white" (click)="openDialog()">Open Time Picker</button>
+    <igx-input-group>
+      <igx-prefix>
+        <igx-icon>home</igx-icon>
+      </igx-prefix>
+      <label igxLabel>Home Time </label>
+      <input igxInput [value]="displayTime" />
+    </igx-input-group>
+    <label>{{value}}</label>
+  </ng-template>
+</igx-time-picker> -->
+
+<!-- <div class="sample-wrapper time-picker-wrapper">
   <h4 class="sample-title">Default Time Picker</h4>
   <p class="sample-description">Plain time picker.</p>
   <div>
     <igx-time-picker id="time-picker"></igx-time-picker>
   </div>
-</div>
+</div> -->
+
+<!-- <div style="z-index:0;background-color: red;position: relative; width: 1000px; height: 700px;" >
+  <div class="sample-wrapper time-picker-wrapper">
+    <h4 class="sample-title">Default Time Picker</h4>
+    <p class="sample-description">Plain time picker.</p>
+    <div>
+      <igx-time-picker id="time-picker"></igx-time-picker>
+    </div>
+  </div>
+ </div> -->
+
+ <!-- <button title="ClickMe" (click)="onClick($event)">Click Me</button>
+ <igx-time-picker ></igx-time-picker> -->

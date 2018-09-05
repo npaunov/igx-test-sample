@@ -1,0 +1,93 @@
+@import "~igniteui-angular/lib/core/styles/themes/index";
+
+// Primary colors:
+$light-color: #F8F8F8;
+$dark-color: #282828;
+
+// Secondary colors:
+$royalblue-color: #4169E1;
+$orange-color: #FFA500;
+
+// Setting palettes:
+$light-theme-palette: igx-palette($primary: $light-color, $secondary: $royalblue-color);
+$dark-theme-palette: igx-palette($primary: $dark-color, $secondary: $orange-color);
+
+@include igx-core();
+@include igx-theme($light-theme-palette);
+
+
+$primary-light-100: igx-color($light-theme-palette, "primary", 100);
+$primary-light-200: igx-color($light-theme-palette, "primary", 200);
+$primary-light-500: igx-color($light-theme-palette, "primary", 500);
+$primary-light-600: igx-color($light-theme-palette, "primary", 600);
+$primary-light-700: igx-color($light-theme-palette, "primary", 700);
+
+$secondary-light-100: igx-color($light-theme-palette, "secondary", 100);
+$secondary-light-200: igx-color($light-theme-palette, "secondary", 200);
+$secondary-light-500: igx-color($light-theme-palette, "secondary", 500);
+$secondary-light-600: igx-color($light-theme-palette, "secondary", 600);
+$secondary-light-700: igx-color($light-theme-palette, "secondary", 700);
+
+$primary-dark-100: igx-color($dark-theme-palette, "primary", 100);
+$primary-dark-500: igx-color($dark-theme-palette, "primary", 500);
+$primary-dark-200: igx-color($dark-theme-palette, "primary", 200);
+$primary-dark-500: igx-color($dark-theme-palette, "primary", 500);
+$primary-dark-600: igx-color($dark-theme-palette, "primary", 600);
+$primary-dark-700: igx-color($dark-theme-palette, "primary", 700);
+
+$secondary-dark-100: igx-color($dark-theme-palette, "secondary", 100);
+$secondary-dark-200: igx-color($dark-theme-palette, "secondary", 200);
+$secondary-dark-500: igx-color($dark-theme-palette, "secondary", 500);
+$secondary-dark-600: igx-color($dark-theme-palette, "secondary", 600);
+$secondary-dark-700: igx-color($dark-theme-palette, "secondary", 700);
+
+
+
+$light-snackbar: igx-snackbar-theme( $palette: $light-theme-palette, $background: $primary-light-100, $text-color: $secondary-light-500);
+$dark-snackbar: igx-snackbar-theme( $palette: $dark-theme-palette, $background: $primary-dark-100, $text-color: $secondary-dark-500);
+$light-dialog: igx-dialog-theme( $palette: $light-theme-palette, $background: $primary-light-100, $title-color: $secondary-light-500, $message-color: $secondary-light-600);
+$dark-dialog: igx-dialog-theme( $palette: $dark-theme-palette, $background: $primary-dark-100, $title-color: $secondary-dark-500, $message-color: $secondary-dark-600);
+
+$light-input-group: igx-input-group-theme( $palette: $light-theme-palette, $disabled-border-color: $primary-light-500, $box-disabled-background: $secondary-light-100, $hover-bottom-line-color: $secondary-light-700, $focused-bottom-line-color: $secondary-light-700, $focused-text-color: $secondary-light-500, $focused-secondary-color: $secondary-light-500);
+
+$dark-input-group: igx-input-group-theme( $palette: $dark-theme-palette, $box-background : $primary-dark-100, $disabled-border-color: $primary-dark-500, $box-disabled-background: $secondary-dark-100, $hover-bottom-line-color: $secondary-dark-700, $focused-bottom-line-color: $secondary-dark-700, $focused-text-color: $secondary-dark-500, $focused-secondary-color: $secondary-dark-500);
+
+$light-date-picker: igx-date-picker-theme( $palette: $light-theme-palette);
+$dark-date-picker: igx-date-picker-theme( $palette: $dark-theme-palette);
+
+:host ::ng-deep {
+    display: block;
+    margin: 16px;
+    box-shadow: igx-elevation($elevations, 12);
+    
+    $light-grid: igx-grid-theme( $palette: $light-theme-palette, $header-background: $secondary-light-700, $header-text-color:$primary-light-600, $cell-selected-background: $secondary-light-600, $row-hover-background: $secondary-light-100, $header-border-color: $primary-light-600);
+    $dark-grid: igx-grid-theme($palette: $dark-theme-palette, $content-background: $secondary-dark-100, $header-background: $primary-dark-500, $header-text-color: $secondary-dark-600, $cell-selected-background: $secondary-dark-600, $cell-selected-text-color: $primary-dark-600, $row-hover-background: $primary-dark-100, $header-border-color: $primary-dark-600);
+    $light-grid-paginator: igx-grid-paginator-theme( $palette: $light-theme-palette, $background-color:$secondary-light-100, $border-color: $secondary-light-500);
+    $dark-grid-paginator: igx-grid-paginator-theme( $palette: $dark-theme-palette, $text-color: $secondary-dark-700, $background-color:$primary-dark-500, $border-color: $secondary-dark-500);
+    $light-button-group: igx-button-theme( $palette: $light-theme-palette, $icon-color: $secondary-light-500, $icon-hover-color: $secondary-light-500, $icon-hover-background: $primary-light-500, $icon-focus-color: $secondary-light-500, $icon-focus-background: $primary-light-500);
+    $dark-button-group: igx-button-theme( $palette: $dark-theme-palette, $icon-color: $secondary-dark-700, $icon-hover-color: $primary-dark-500, $icon-hover-background: $secondary-dark-500, $icon-focus-color: $primary-dark-500, $icon-focus-background: $secondary-dark-500);
+
+
+
+    //Setting the grid based on the chosen color theme
+    .light-theme-grid {
+        background: $light-color;
+        @include igx-theme($light-theme-palette);
+        @include igx-grid($light-grid);
+        @include igx-snackbar($light-snackbar);
+        @include igx-input-group($light-input-group);
+        @include igx-date-picker($light-date-picker);
+        @include igx-grid-paginator($light-grid-paginator);
+        @include igx-button($light-button-group);
+    }
+    .dark-theme-grid {
+        background: $dark-color;
+        @include igx-theme($dark-theme-palette);
+        @include igx-grid($dark-grid);
+        @include igx-snackbar($dark-snackbar);
+        @include igx-input-group($dark-input-group);
+        @include igx-date-picker($dark-date-picker);
+        @include igx-grid-paginator($dark-grid-paginator);
+        @include igx-button($dark-button-group);
+    }
+}

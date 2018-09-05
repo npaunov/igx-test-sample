@@ -1,0 +1,72 @@
+<div [class]="gridTheme">
+  <div class="grid-theme-chooser" igxLayout igxLayoutDir="row" igxLayoutWrap="wrap">
+      <button igxButton="raised" (click)="dialogAdd.open()" class="addProdBtn">Add New Product</button>
+      <button igxButton="raised" (click)="toggleDropDown($event, dropdown)">Themes</button>
+      <igx-drop-down #dropdown id="griddd">
+          <igx-drop-down-item [igxDropDownItemNavigation]="dropdown" *ngFor="let button of buttons" [style.background-color]="button.primary"
+              [style.color]="button.secondary" (click)="setTheme(button.color, 'grid', 'gridTheme')">
+              {{button.color| uppercase}}
+          </igx-drop-down-item>
+      </igx-drop-down>
+  </div>
+  
+  <igx-grid #grid1  id="grid1" [data]="data" [autoGenerate]="false"  width="1000px" [paging]="true" [perPage]="10"
+      [displayDensity]="'comfortable'">
+      <igx-column [movable]="true"  [field]="'IndustrySector'" dataType="string" [filterable]="true" [sortable]="true"></igx-column>
+      <!-- <igx-column [field]="'IndustryGroup'" dataType="string" [filterable]="true" [sortable]="true" [editable]="true"></igx-column> -->
+      <!-- <igx-column [field]="'SectorType'" dataType="string" [filterable]="true" [sortable]="true" [editable]="true"></igx-column> -->
+      <igx-column [movable]="true"  [field]="'KRD'" dataType="number" [filterable]="true" [sortable]="true"></igx-column>
+      <igx-column [movable]="true" [header]="1"  [field]="'MarketNotion'" dataType="number" [filterable]="true" [sortable]="true" [editable]="true"></igx-column>
+      <igx-column [movable]="true" [header]="2" pinned="true" [field]="'MarketNotion'" dataType="number" [filterable]="true" [sortable]="true" [editable]="true"></igx-column>
+      <igx-column [movable]="true" [header]="3" pinned="true" [field]="'MarketNotion'" dataType="number" [filterable]="true" [sortable]="true" [editable]="true"></igx-column>
+      <igx-column [movable]="true" [header]="4" pinned="true" [field]="'MarketNotion'" dataType="number" [filterable]="true" [sortable]="true" [editable]="true"></igx-column>
+      <igx-column [movable]="true" [header]="5"  pinned="true" [field]="'MarketNotion'" dataType="number" [filterable]="true" [sortable]="true" [editable]="true"></igx-column>
+      <igx-column [movable]="true" [header]="6" [field]="'MarketNotion'" dataType="number" [filterable]="true" [sortable]="true" [editable]="true"></igx-column>
+      <igx-column [movable]="true" [header]="7" [field]="'MarketNotion'" dataType="number" [filterable]="true" [sortable]="true" [editable]="true"></igx-column>
+      <igx-column [movable]="true"  pinned="true" [field]="'MarketNotion'" dataType="number" [filterable]="true" [sortable]="true" [editable]="true"></igx-column>
+      <igx-column [movable]="true"  pinned="true" [field]="'MarketNotion'" dataType="number" [filterable]="true" [sortable]="true" [editable]="true"></igx-column>
+      <igx-column [movable]="true"  pinned="true" [field]="'MarketNotion'" dataType="number" [filterable]="true" [sortable]="true" [editable]="true"></igx-column>
+      
+      <igx-column [movable]="true" [field]="'Date'" dataType="date" [filterable]="true" [sortable]="true" [editable]="true">
+          <!-- <ng-template igxCell let-cell="cell" let-val>
+              {{val | date:'dd/MM/yyyy'}}
+          </ng-template> -->
+      </igx-column>
+      <igx-column [movable]="true" width="0.1em" [field]="'Delete Row'">
+          <ng-template igxCell let-cell="cell">
+              <button igxButton="icon" (click)="removeRow(cell.cellID.rowIndex)">
+                  <igx-icon>delete</igx-icon>
+              </button>
+          </ng-template>
+      </igx-column>
+  </igx-grid>
+  <igx-dialog #dialogAdd title="New Record" [rightButtonLabel]="'Add'" [leftButtonLabel]="'Cancel'" (onLeftButtonSelect)="cancel()"
+      (onRightButtonSelect)="addRow()">
+      <div class="dialogNewRecord" class="dialog-class">
+          <igx-input-group>
+              <label igxLabel for="industrySector">Industry Sector</label>
+              <input igxInput id="industrySector" type="text" [(ngModel)]="record.IndustrySector" />
+          </igx-input-group>
+          <igx-input-group>
+              <label igxLabel for="industryGroup">Industry Group</label>
+              <input igxInput id="industryGroup" type="text" [(ngModel)]="record.IndustryGroup" />
+          </igx-input-group>
+          <igx-input-group>
+              <label igxLabel for="sectorType">Sector Type</label>
+              <input igxInput id="sectorType" type="text" [(ngModel)]="record.SectorType" />
+          </igx-input-group>
+          <igx-input-group>
+              <label igxLabel for="krd">KRD</label>
+              <input igxInput id="krd" type="number" [(ngModel)]="record.KRD" />
+          </igx-input-group>
+          <igx-input-group>
+              <label igxLabel for="marketNotion">Market Notion</label>
+              <input igxInput id="marketNotion" type="number" [(ngModel)]="record.MarketNotion" />
+          </igx-input-group>
+          <igx-datePicker id="date" label="Date" [(ngModel)]="record.Date"></igx-datePicker>
+      </div>
+  </igx-dialog>
+  <div>
+      <igx-snackbar #snackbar></igx-snackbar>
+  </div>
+</div>

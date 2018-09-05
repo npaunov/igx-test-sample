@@ -1,7 +1,11 @@
 import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { employeesData } from './localData';
 import { IgxGridComponent, IgxToggleModule, FilteringLogic, IgxStringFilteringOperand, FilteringExpressionsTree, IgxDateFilteringOperand, IgxBooleanFilteringOperand,
-    IgxNumberFilteringOperand } from 'igniteui-angular';
+    IgxNumberFilteringOperand, 
+    OverlaySettings,
+    ConnectedPositioningStrategy,
+    HorizontalAlignment,
+    IgxToggleDirective} from 'igniteui-angular';
 
 @Component({
     selector: 'app-grid',
@@ -11,7 +15,15 @@ import { IgxGridComponent, IgxToggleModule, FilteringLogic, IgxStringFilteringOp
 export class GridComponent implements OnInit {
     public localData: any[];
     title = 'Grid';
-
+    private _overlaySettings: OverlaySettings = {
+        positionStrategy: new ConnectedPositioningStrategy(),
+        modal: false,
+        closeOnOutsideClick: true
+    };
+    
+    @ViewChild(IgxToggleDirective, { read: IgxToggleDirective })
+    protected toggleDirective: IgxToggleDirective;
+    
     constructor() {
         }
 
@@ -79,5 +91,22 @@ export class GridComponent implements OnInit {
 
     onClear(ev) {
         this.grid1.clearFilter();
+    }
+
+    public onIconClick(eventArgs): void {
+        requestAnimationFrame(() => {
+
+            this._overlaySettings.positionStrategy.settings.horizontalDirection = HorizontalAlignment.Left;
+            this._overlaySettings.positionStrategy.settings.horizontalStartPoint = HorizontalAlignment.Right;
+
+
+            this._overlaySettings.positionStrategy.settings.target = eventArgs.target;
+            this.toggleDirective.toggle(this._overlaySettings);
+        });
+    }
+
+    f(event) {
+        debugger;
+        console.log(event);
     }
 }
